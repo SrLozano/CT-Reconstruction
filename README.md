@@ -22,14 +22,49 @@ The steps taken throughout the task are as follows:
  5. **Apply reconstruction to Sheep-logan phantom**
     - Repetition of the prior analysis using a more advanced head test object, the **Sheep-logan phantom**.
 
+## Results 📊
+
+1. **Create a simple and homogeneous phantom**
+![Phantom](docs/images/phantom_pixel_intensity.png)
+
+
+2. **Create the projections of the phantom** 
+	- **Case A:** Use a fixed angle range in a different number of projections.
+		
+		![Sinograms - Number of projections](docs/images/sinograms_number_projections.png)
+	- **Case B**: Use a fixed number of projections in different angle ranges.
+		![Sinograms - Angles](docs/images/sinograms_angles.png)
+
+		Section A uses a variable number of projections within the range 0º - 360º, therefore a complete view of the object is being generated. However, the parameter being varied is the amount of information being taken from it. **The more projections you have, the higher the quality of the reconstruction.** On the other hand, by setting a fixed number of projections and varying the angle we see how this influences the "wave" obtained from the sinogram. In this way, we can see how, for example, **an angle of 180º obtains half a cycle and the amplitude**, which is sufficient to define the reconstruction. For this reason, Radon transform is calculated for angles between 0° and 180° since in this way, the **number of scans of the patience is minimized.**
+
+
+
+3. **Reconstruction with Filtered Back Projection (FBP)**
+	-  Comparison of the different filters available (*Ramp filter (default), Shepp-logan, Cosine, Hamming, Hann*). 
+
+		![Filters](docs/images/reconstructions_filters.png)
+	- **Case A:** Use a fixed angle range in a different number of projections.
+	![Reconstruction - Number of projections](docs/images/reconstructions_number_projections.png)
+	- **Case B:** Use a fixed number of projections in different angle ranges.
+	![Reconstruction - Angles](docs/images/reconstructions_angles.png)
+
+	 
+4. **Reconstruction of noisy sinograms**
+![Noisy reconstructions](docs/images/reconstructions_filters_noise_effect.png)
+![Pixel intensity noisy](docs/images/reconstructed_pixel_intensity_noise_effect.png)
+
+
+5. **Apply reconstruction to Sheep-logan phantom**
+    - **Case A:** Use a fixed angle range in a different number of projections.
+    ![Sinograms - Number of projections - Sheep Logan](docs/images/shepp_logan_sinograms_number_projections.png)![Reconstruction - Number of projections - Sheep Logan](docs/images/shepp_logan_reconstructions_number_projections.png)
+	
+    - **Case B:** Use a fixed number of projections in different angle ranges.
+![Sinograms - Number of projections - Sheep Logan](docs/images/shepp_logan_sinograms_angles.png)![Reconstruction - Number of projections - Sheep Logan](docs/images/shepp_logan_reconstructions_angles.png)
+     - **Poisson noise** 
+![Reconstructions - Noise - Sheep Logan](docs/images/shepp_logan_reconstructions_filters_noise_effect.png)![Reconstruction - Noisy Pixel intensity - Sheep Logan](docs/images/shepp_logan_reconstructed_pixel_intensity_noise_effect.png)
 ## Run it 🚀
 
 Run *CT_Reconstruction.ipynb* in order to reconstruct the Sheep-logan phantom.
-
-## Results 📊
-
-
-
 
 ## Want to collaborate? 🙋🏻
 Feel free to improve and optimize the existing code. To contribute to the project, read the previous points carefully and do the next steps with the project:
